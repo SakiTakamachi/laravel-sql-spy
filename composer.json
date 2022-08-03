@@ -1,0 +1,27 @@
+{
+    "name": "sakiot/laravel-sql-spy",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Sakiot\\LaravelSqlSpy\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Sakiot\\LaravelSqlSpy\\LaravelSqlSpyServiceProvider"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "SakiTakamachi",
+            "email": "saki@sakiot.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.0",
+        "laravel/framework": ">=8.0"
+    }
+}

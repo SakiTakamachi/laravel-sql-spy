@@ -17,12 +17,12 @@
 </style>
 
 <div id="sakiot-sql-spy">
-    <a href="{{ route($download_route_name) }}" onclick="event.preventDefault();document.getElementById('sakiot-sql-spy-form').submit();" target="_blank">
+    <a href="{{ route($download_route_name, [], false) }}" onclick="event.preventDefault();document.getElementById('sakiot-sql-spy-form').submit();" target="_blank">
         <span>SQL SPY</span>
         <span>CSV DOWNLOAD</span>
     </a>
 </div>
 
-<form id="sakiot-sql-spy-form" action="{{ route($download_route_name) }}" method="POST" style="display: none;">
+<form id="sakiot-sql-spy-form" action="{{ route($download_route_name, [], false) }}" method="POST" style="display: none;">
     @csrf
 </form>

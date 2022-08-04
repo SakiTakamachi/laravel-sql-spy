@@ -22,7 +22,10 @@ class LaravelSqlSpyServiceProvider extends ServiceProvider
         }
 
         $this->dependencyInjection();
-        $this->app->make([LaravelSqlSpy::class, 'listen']);
+        $this->app->call([
+            $this->app->make(LaravelSqlSpy::class),
+            'listen',
+        ]);
     }
 
     /**

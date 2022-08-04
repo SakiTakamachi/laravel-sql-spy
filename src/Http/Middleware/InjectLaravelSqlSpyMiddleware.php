@@ -39,9 +39,11 @@ class InjectLaravelSqlSpyMiddleware
 
         $pos = strripos($content, '</body>');
 
-        if (false !== $pos) {
-            $content = substr($content, 0, $pos) . $inject_content . substr($content, $pos);
+        if ($pos === false) {
+            return;
         }
+
+        $content = substr($content, 0, $pos) . $inject_content . substr($content, $pos);
 
         $original = null;
         if ($response instanceof \Illuminate\Http\Response && $response->getOriginalContent()) {

@@ -8,7 +8,7 @@ class BacktraceUtil
         '/vendor/laravel/framework/src/Illuminate/Support',
         '/vendor/laravel/framework/src/Illuminate/Database',
         '/vendor/laravel/framework/src/Illuminate/Events',
-        '/packages/sakiot/sql-spy/'
+        'laravel-sql-spy',
     ];
 
     public static function parse(array $backtrace) : array

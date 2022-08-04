@@ -5,10 +5,7 @@ namespace LaravelSqlSpy;
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Support\ServiceProvider;
 use LaravelSqlSpy\LaravelSqlSpy;
-use LaravelSqlSpy\Models\QueryModel;
-use LaravelSqlSpy\Models\QueryGroupBySqlAndBacktraceModel;
 use LaravelSqlSpy\Dtos\Report\ReportSingletonDto;
-use LaravelSqlSpy\Repositories\ReportRepository;
 use LaravelSqlSpy\Http\Middleware\InjectLaravelSqlSpyMiddleware;
 
 class LaravelSqlSpyServiceProvider extends ServiceProvider
@@ -25,7 +22,7 @@ class LaravelSqlSpyServiceProvider extends ServiceProvider
         }
 
         $this->dependencyInjection();
-        $this->app->make(LaravelSqlSpy::class)->listen();
+        $this->app->make([LaravelSqlSpy::class, 'listen']);
     }
 
     /**
@@ -48,19 +45,7 @@ class LaravelSqlSpyServiceProvider extends ServiceProvider
 
     protected function dependencyInjection() : void
     {
-        $this->app->bind(QueryModel::class);
-
-        $this->app->bind(QueryGroupBySqlAndBacktraceModel::class);
-
         $this->app->singleton(ReportSingletonDto::class);
-
-        $this->app->bind(ReportRepository::class, function ($app) {
-            return new ReportRepository($app->make(ReportSingletonDto::class));
-        });
-
-        $this->app->bind(LaravelSqlSpy::class, function ($app) {
-            return new LaravelSqlSpy($app->make(ReportRepository::class));
-        });
     }
 
     protected function isEnable() : bool

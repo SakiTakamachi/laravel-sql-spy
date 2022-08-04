@@ -41,8 +41,6 @@ class InjectLaravelSqlSpyMiddleware
 
         if (false !== $pos) {
             $content = substr($content, 0, $pos) . $inject_content . substr($content, $pos);
-        } else {
-            $content = $content . $inject_content;
         }
 
         $original = null;

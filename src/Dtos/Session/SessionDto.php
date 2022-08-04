@@ -1,6 +1,6 @@
 <?php
 
-namespace Sakiot\LaravelSqlSpy\Dtos\Session;
+namespace LaravelSqlSpy\Dtos\Session;
 
 use Carbon\Carbon;
 

@@ -1,12 +1,12 @@
 <?php
 
-namespace Sakiot\LaravelSqlSpy\Http\Middleware;
+namespace LaravelSqlSpy\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Sakiot\LaravelSqlSpy\Vos\RouteVo;
-use Sakiot\LaravelSqlSpy\Utils\Session\SessionUtil;
+use LaravelSqlSpy\Vos\RouteVo;
+use LaravelSqlSpy\Utils\Session\SessionUtil;
 
 class InjectLaravelSqlSpyMiddleware
 {

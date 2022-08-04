@@ -1,12 +1,12 @@
 <?php
 
-namespace Sakiot\LaravelSqlSpy\Utils\Session;
+namespace LaravelSqlSpy\Utils\Session;
 
 use Illuminate\Http\Request;
-use Sakiot\LaravelSqlSpy\Repositories\ReportRepository;
-use Sakiot\LaravelSqlSpy\Vos\RouteVo;
-use Sakiot\LaravelSqlSpy\Vos\SessionVo;
-use Sakiot\LaravelSqlSpy\Dtos\Session\SessionDto;
+use LaravelSqlSpy\Repositories\ReportRepository;
+use LaravelSqlSpy\Vos\RouteVo;
+use LaravelSqlSpy\Vos\SessionVo;
+use LaravelSqlSpy\Dtos\Session\SessionDto;
 use Carbon\Carbon;
 
 class SessionUtil

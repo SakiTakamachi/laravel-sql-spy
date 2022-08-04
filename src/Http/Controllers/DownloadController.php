@@ -1,11 +1,11 @@
 <?php
 
-namespace Sakiot\LaravelSqlSpy\Http\Controllers;
+namespace LaravelSqlSpy\Http\Controllers;
 
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
-use Sakiot\LaravelSqlSpy\Utils\Session\SessionUtil;
-use Sakiot\LaravelSqlSpy\Vos\CsvVo;
+use LaravelSqlSpy\Utils\Session\SessionUtil;
+use LaravelSqlSpy\Vos\CsvVo;
 
 class DownloadController extends Controller
 {

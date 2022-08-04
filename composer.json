@@ -4,13 +4,13 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Sakiot\\LaravelSqlSpy\\": "src/"
+            "LaravelSqlSpy\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Sakiot\\LaravelSqlSpy\\LaravelSqlSpyServiceProvider"
+                "LaravelSqlSpy\\LaravelSqlSpyServiceProvider"
             ]
         }
     },

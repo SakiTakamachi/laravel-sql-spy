@@ -1,11 +1,11 @@
 <?php
 
-namespace Sakiot\LaravelSqlSpy\Models;
+namespace LaravelSqlSpy\Models;
 
-use Sakiot\LaravelSqlSpy\Models\Model;
-use Sakiot\LaravelSqlSpy\Models\Traits\Fields\SqlField;
-use Sakiot\LaravelSqlSpy\Models\Traits\Fields\BacktraceField;
-use Sakiot\LaravelSqlSpy\Models\Traits\Fields\QueryGroupField;
+use LaravelSqlSpy\Models\Model;
+use LaravelSqlSpy\Models\Traits\Fields\SqlField;
+use LaravelSqlSpy\Models\Traits\Fields\BacktraceField;
+use LaravelSqlSpy\Models\Traits\Fields\QueryGroupField;
 
 class QueryGroupBySqlAndBacktraceModel extends Model
 {

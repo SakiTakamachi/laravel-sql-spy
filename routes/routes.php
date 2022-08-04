@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Sakiot\LaravelSqlSpy\Vos\RouteVo;
-use Sakiot\LaravelSqlSpy\Http\Controllers\DownloadController;
+use LaravelSqlSpy\Vos\RouteVo;
+use LaravelSqlSpy\Http\Controllers\DownloadController;
 
 Route::group([
     'middleware' => ['web'],

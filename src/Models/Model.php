@@ -1,9 +1,9 @@
 <?php
 
-namespace Sakiot\LaravelSqlSpy\Models;
+namespace LaravelSqlSpy\Models;
 
-use Sakiot\LaravelSqlSpy\Models\Traits\ToArray;
-use Sakiot\LaravelSqlSpy\Models\Traits\ToCollection;
+use LaravelSqlSpy\Models\Traits\ToArray;
+use LaravelSqlSpy\Models\Traits\ToCollection;
 
 abstract class Model
 {

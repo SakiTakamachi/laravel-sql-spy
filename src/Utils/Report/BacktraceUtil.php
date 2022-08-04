@@ -1,6 +1,6 @@
 <?php
 
-namespace Sakiot\LaravelSqlSpy\Utils\Report;
+namespace LaravelSqlSpy\Utils\Report;
 
 class BacktraceUtil
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Sakiot\LaravelSqlSpy\Models\Traits;
+namespace LaravelSqlSpy\Models\Traits;
 
 trait ToArray
 {

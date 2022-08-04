@@ -1,10 +1,10 @@
 <?php
 
-namespace Sakiot\LaravelSqlSpy\Repositories;
+namespace LaravelSqlSpy\Repositories;
 
 use Illuminate\Support\Collection;
-use Sakiot\LaravelSqlSpy\Dtos\Report\ReportSingletonDto;
-use Sakiot\LaravelSqlSpy\Models\QueryGroupBySqlAndBacktraceModel;
+use LaravelSqlSpy\Dtos\Report\ReportSingletonDto;
+use LaravelSqlSpy\Models\QueryGroupBySqlAndBacktraceModel;
 
 class ReportRepository
 {

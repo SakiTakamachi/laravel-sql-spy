@@ -1,15 +1,15 @@
 <?php
 
-namespace Sakiot\LaravelSqlSpy;
+namespace LaravelSqlSpy;
 
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Support\ServiceProvider;
-use Sakiot\LaravelSqlSpy\LaravelSqlSpy;
-use Sakiot\LaravelSqlSpy\Models\QueryModel;
-use Sakiot\LaravelSqlSpy\Models\QueryGroupBySqlAndBacktraceModel;
-use Sakiot\LaravelSqlSpy\Dtos\Report\ReportSingletonDto;
-use Sakiot\LaravelSqlSpy\Repositories\ReportRepository;
-use Sakiot\LaravelSqlSpy\Http\Middleware\InjectLaravelSqlSpyMiddleware;
+use LaravelSqlSpy\LaravelSqlSpy;
+use LaravelSqlSpy\Models\QueryModel;
+use LaravelSqlSpy\Models\QueryGroupBySqlAndBacktraceModel;
+use LaravelSqlSpy\Dtos\Report\ReportSingletonDto;
+use LaravelSqlSpy\Repositories\ReportRepository;
+use LaravelSqlSpy\Http\Middleware\InjectLaravelSqlSpyMiddleware;
 
 class LaravelSqlSpyServiceProvider extends ServiceProvider
 {

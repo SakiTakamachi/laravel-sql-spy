@@ -1,13 +1,13 @@
 <?php
 
-namespace Sakiot\LaravelSqlSpy;
+namespace LaravelSqlSpy;
 
 use Illuminate\Support\Facades\DB;
-use Sakiot\LaravelSqlSpy\Models\QueryModel;
-use Sakiot\LaravelSqlSpy\Models\QueryGroupBySqlAndBacktraceModel;
-use Sakiot\LaravelSqlSpy\Repositories\ReportRepository;
-use Sakiot\LaravelSqlSpy\Utils\Report\BindingUtil;
-use Sakiot\LaravelSqlSpy\Utils\Report\BacktraceUtil;
+use LaravelSqlSpy\Models\QueryModel;
+use LaravelSqlSpy\Models\QueryGroupBySqlAndBacktraceModel;
+use LaravelSqlSpy\Repositories\ReportRepository;
+use LaravelSqlSpy\Utils\Report\BindingUtil;
+use LaravelSqlSpy\Utils\Report\BacktraceUtil;
 
 class LaravelSqlSpy
 {

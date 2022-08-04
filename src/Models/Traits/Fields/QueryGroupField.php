@@ -1,6 +1,6 @@
 <?php
 
-namespace Sakiot\LaravelSqlSpy\Models\Traits\Fields;
+namespace LaravelSqlSpy\Models\Traits\Fields;
 
 trait QueryGroupField
 {

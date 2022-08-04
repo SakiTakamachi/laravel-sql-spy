@@ -1,6 +1,6 @@
 <?php
 
-namespace Sakiot\LaravelSqlSpy\Dtos\Report;
+namespace LaravelSqlSpy\Dtos\Report;
 
 use Illuminate\Support\Collection;
 

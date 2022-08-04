@@ -1,6 +1,6 @@
 <?php
 
-namespace Sakiot\LaravelSqlSpy\Vos;
+namespace LaravelSqlSpy\Vos;
 
 class SessionVo
 {

@@ -29,7 +29,7 @@ Register the Service Provider in your config file.
     // ...
 
     // Other Service Providers...
-    Sakiot\LaravelSqlSpy\LaravelSqlSpyServiceProvider::class, // add
+    LaravelSqlSpy\LaravelSqlSpyServiceProvider::class, // add
 ],
 ```
 

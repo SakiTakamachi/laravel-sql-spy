@@ -4,7 +4,7 @@ namespace LaravelSqlSpy\Vos;
 
 class SessionVo
 {
-    protected const SESSION_KEY = 'sakiot-sql-spy';
+    protected const SESSION_KEY = 'laravel-sql-spy';
 
     public static function key() : string
     {

@@ -4,7 +4,7 @@ namespace LaravelSqlSpy\Vos;
 
 class CsvVo
 {
-    protected const FILE_BASE_NAME = 'SQL-SPY_';
+    protected const FILE_BASE_NAME = 'LaravelSqlSpy_';
     protected const GROUP_BY_SQL_AND_BACKTRACE_HEADER = [
         'Query',
         'Count',

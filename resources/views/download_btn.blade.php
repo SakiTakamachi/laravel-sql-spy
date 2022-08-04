@@ -1,3 +1,4 @@
+
 <style>
     #laravel-sql-spy{
         position:fixed;

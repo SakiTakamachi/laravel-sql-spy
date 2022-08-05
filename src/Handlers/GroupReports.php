@@ -29,17 +29,19 @@ abstract class GroupReports
     protected function pushGroupedReport(
         string $query,
         array $bindings,
-        float $time,
-        array $backtrace,
         int $count,
+        float $total_time,
+        float $average_time,
+        array $backtrace,
     ) : void
     {
         $this->grouped_report_collection->push(new GroupedQueryLogDto(
             $query,
             $bindings,
-            $time,
-            $backtrace,
             $count,
+            $total_time,
+            $average_time,
+            $backtrace,
         ));
     }
 }

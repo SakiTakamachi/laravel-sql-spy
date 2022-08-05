@@ -4,14 +4,14 @@ namespace LaravelSqlSpy\Http\Controllers;
 
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
-use LaravelSqlSpy\Utils\Session\SessionUtil;
-use LaravelSqlSpy\Vos\CsvVo;
+use LaravelSqlSpy\Stores\SessionStore;
+use LaravelSqlSpy\ValueObjects\CsvVo;
 
 class DownloadController extends Controller
 {
     public function csv(Request $request)
     {
-        $session_data = SessionUtil::load();
+        $session_data = SessionStore::load();
 
         abort_if(!$session_data->hasData(), 404);
 

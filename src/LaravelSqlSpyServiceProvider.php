@@ -5,7 +5,7 @@ namespace LaravelSqlSpy;
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Support\ServiceProvider;
 use LaravelSqlSpy\LaravelSqlSpy;
-use LaravelSqlSpy\Dtos\Report\ReportSingletonDto;
+use LaravelSqlSpy\Singleton\ReportCollection;
 use LaravelSqlSpy\Http\Middleware\InjectLaravelSqlSpyMiddleware;
 
 class LaravelSqlSpyServiceProvider extends ServiceProvider
@@ -48,7 +48,7 @@ class LaravelSqlSpyServiceProvider extends ServiceProvider
 
     protected function dependencyInjection() : void
     {
-        $this->app->singleton(ReportSingletonDto::class);
+        $this->app->singleton(ReportCollection::class);
     }
 
     protected function isEnable() : bool

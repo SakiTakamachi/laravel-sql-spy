@@ -3,15 +3,15 @@
 namespace LaravelSqlSpy;
 
 use Illuminate\Support\Facades\DB;
-use LaravelSqlSpy\Models\QueryModel;
-use LaravelSqlSpy\Models\QueryGroupBySqlAndBacktraceModel;
-use LaravelSqlSpy\Repositories\ReportRepository;
-use LaravelSqlSpy\Utils\Report\BindingUtil;
-use LaravelSqlSpy\Utils\Report\BacktraceUtil;
+use LaravelSqlSpy\DataTransferObjects\Report\QueryLogDto;
+use LaravelSqlSpy\Singleton\ReportCollection;
+use LaravelSqlSpy\Formatters\BindingFormatter;
+use LaravelSqlSpy\Formatters\BacktraceFormatter;
+use LaravelSqlSpy\Filters\BacktraceFilter;
 
 class LaravelSqlSpy
 {
-    public function __construct(protected ReportRepository $report_repository)
+    public function __construct(protected ReportCollection $report_collection)
     {
         //
     }
@@ -19,22 +19,18 @@ class LaravelSqlSpy
     public function listen() : void
     {
         DB::listen(function ($query){
-            $query_model = app()->make(QueryModel::class);
-
-            $query_model->sql($query->sql);
-
-            /*
-            foreach ($query->bindings as $binding) {
-                $query_model->bindings(BindingUtil::parse($binding));
-            }
-            */
-
-            $query_model->time($query->time);
+            $bindings = BindingFormatter::format($query->bindings);
 
             $backtrace = debug_backtrace(false, 100);
-            $query_model->backtrace(BacktraceUtil::parse($backtrace));
+            $backtrace = BacktraceFilter::filter($backtrace);
+            $backtrace = BacktraceFormatter::format($backtrace);
 
-            $this->report_repository->collection()->push($query_model);
+            $this->report_collection->push(new QueryLogDto(
+                $query->sql,
+                $bindings,
+                $query->time,
+                $backtrace,
+            ));
         });
     }
 }

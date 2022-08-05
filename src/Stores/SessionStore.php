@@ -1,19 +1,20 @@
 <?php
 
-namespace LaravelSqlSpy\Utils\Session;
+namespace LaravelSqlSpy\Stores;
 
 use Illuminate\Http\Request;
-use LaravelSqlSpy\Repositories\ReportRepository;
-use LaravelSqlSpy\Vos\RouteVo;
-use LaravelSqlSpy\Vos\SessionVo;
-use LaravelSqlSpy\Dtos\Session\SessionDto;
+use LaravelSqlSpy\Handler\GroupByQueryAndBacktrace;
+use LaravelSqlSpy\ValueObjects\RouteVo;
+use LaravelSqlSpy\ValueObjects\SessionVo;
+use LaravelSqlSpy\DataTransferObjects\Session\SessionDto;
 use Carbon\Carbon;
 
-class SessionUtil
+class SessionStore
 {
     public static function save(Request $request) : void
     {
         $route_name = $request?->route()?->getName();
+
         if(is_null($route_name) || $route_name === RouteVo::csvDownloadRouteNameFull()){
             return;
         }
@@ -21,11 +22,9 @@ class SessionUtil
         $page = $route_name ?: 'unknown';
         $page = str_replace('.', '_', $page);
 
-        $reports = app()->make(ReportRepository::class)->groupBySqlAndBacktrace();
+        $reports = app()->make(GroupByQueryAndBacktrace::class)->get();
 
-        $session_data = new SessionDto($page, $reports, Carbon::now());
-
-        session()->put(SessionVo::key(), serialize($session_data));
+        session()->put(SessionVo::key(), serialize(new SessionDto($page, $reports, Carbon::now())));
         session()->save();
     }
 

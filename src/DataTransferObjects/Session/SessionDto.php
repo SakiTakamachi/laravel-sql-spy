@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelSqlSpy\Dtos\Session;
+namespace LaravelSqlSpy\DataTransferObjects\Session;
 
 use Carbon\Carbon;
 

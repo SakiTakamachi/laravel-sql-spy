@@ -1,11 +1,8 @@
 <?php
 
-namespace LaravelSqlSpy\Utils\Report;
+namespace LaravelSqlSpy\Formatters;
 
-use Carbon\Carbon;
-use DateTime;
-
-class BindingUtil
+class GroupedQueryLogFormatter
 {
     public static function parse(mixed $binding) : string
     {

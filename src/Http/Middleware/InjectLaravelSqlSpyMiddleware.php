@@ -5,8 +5,8 @@ namespace LaravelSqlSpy\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use LaravelSqlSpy\Vos\RouteVo;
-use LaravelSqlSpy\Utils\Session\SessionUtil;
+use LaravelSqlSpy\ValueObjects\RouteVo;
+use LaravelSqlSpy\Stores\SessionStore
 
 class InjectLaravelSqlSpyMiddleware
 {
@@ -22,7 +22,7 @@ class InjectLaravelSqlSpyMiddleware
         $response = $next($request);
 
         if($response instanceof Response){
-            SessionUtil::save($request);
+            SessionStore::save($request);
             $this->viewInject($response);
         }
         
@@ -46,7 +46,7 @@ class InjectLaravelSqlSpyMiddleware
         $content = substr($content, 0, $pos) . $inject_content . substr($content, $pos);
 
         $original = null;
-        if ($response instanceof \Illuminate\Http\Response && $response->getOriginalContent()) {
+        if ($response instanceof Response && $response->getOriginalContent()) {
             $original = $response->getOriginalContent();
         }
 

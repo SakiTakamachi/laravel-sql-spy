@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelSqlSpy\Vos;
+namespace LaravelSqlSpy\ValueObjects;
 
 class CsvVo
 {

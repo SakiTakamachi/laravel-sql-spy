@@ -17,7 +17,7 @@ class GroupByQueryAndBacktrace extends GroupReports
                 $report_group_by_query->each(function($report_group_by_backtrace, $backtrace) use ($query){
                     $count = $report_group_by_backtrace->count();
                     $total_time = $report_group_by_backtrace->sum(function($report){
-                        return $report->time();
+                        return $report->getTime();
                     });
                     $average_time = $count > 0 ? $total_time / $count : 0;
 

@@ -30,7 +30,7 @@ class DownloadController extends Controller
                     $report->getCount(),
                     $report->getTotalTime(),
                     $report->getAverageTime(),
-                    implode("\n", $report->backtrace()),
+                    implode("\n", $report->getBacktrace()),
                 ]);
             }
 

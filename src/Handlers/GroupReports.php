@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelSqlSpy\Handler;
+namespace LaravelSqlSpy\Handlers;
 
 use Illuminate\Support\Collection;
 use LaravelSqlSpy\Singleton\ReportCollection;

@@ -1,14 +1,14 @@
 <?php
 
-namespace LaravelSqlSpy\Handler;
+namespace LaravelSqlSpy\Handlers;
 
-use LaravelSqlSpy\Handler\GroupReports;
+use LaravelSqlSpy\Handlers\GroupReports;
 
 class GroupByQueryAndBacktrace extends GroupReports
 {
     public function handle() : void
     {
-        $this->report_collection
+        $this->reports
             ->groupBy([function($report){
                 return $report->getQuery();
             }, function($report){

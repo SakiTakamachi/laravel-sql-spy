@@ -3,7 +3,7 @@
 namespace LaravelSqlSpy\Stores;
 
 use Illuminate\Http\Request;
-use LaravelSqlSpy\Handler\GroupByQueryAndBacktrace;
+use LaravelSqlSpy\Handlers\GroupByQueryAndBacktrace;
 use LaravelSqlSpy\ValueObjects\RouteVo;
 use LaravelSqlSpy\ValueObjects\SessionVo;
 use LaravelSqlSpy\DataTransferObjects\Session\SessionDto;
@@ -24,7 +24,7 @@ class SessionStore
 
         $reports = app()->make(GroupByQueryAndBacktrace::class)->get();
 
-        session()->put(SessionVo::key(), serialize(new SessionDto($page, $reports, Carbon::now())));
+        session()->put(SessionVo::key(), serialize(new SessionDto($page, $reports->toArray(), Carbon::now())));
         session()->save();
     }
 

@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use LaravelSqlSpy\ValueObjects\RouteVo;
-use LaravelSqlSpy\Stores\SessionStore
+use LaravelSqlSpy\Stores\SessionStore;
 
 class InjectLaravelSqlSpyMiddleware
 {

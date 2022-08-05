@@ -19,7 +19,8 @@ class LaravelSqlSpy
     public function listen() : void
     {
         DB::listen(function ($query){
-            $bindings = BindingFormatter::format($query->bindings);
+            //$bindings = BindingFormatter::format($query->bindings);
+            $bindings = [];
 
             $backtrace = debug_backtrace(false, 100);
             $backtrace = BacktraceFilter::filter($backtrace);

@@ -23,7 +23,6 @@ class GroupByQueryAndBacktrace extends GroupReports
 
                     $this->pushGroupedReport(
                         $query,
-                        $report_group_by_backtrace->getBindings(),
                         $count,
                         $total_time,
                         $average_time,

@@ -15,7 +15,7 @@ class DownloadController extends Controller
 
         abort_if(!$session_data->hasData(), 404);
 
-        $filename = CsvVo::fileBaseName() . $session_data->getPageName() . '_' . $session_data->spiedAt()->format('Ymd_His') . '.csv';
+        $filename = sprintf('%s%s_%s.csv', CsvVo::fileBaseName(), $session_data->getPageName(), $session_data->spiedAt()->format('Ymd_His'));
 
         $reports = $session_data->getReports();
 
@@ -26,10 +26,10 @@ class DownloadController extends Controller
 
             foreach($reports as $report){
                 fputcsv($stream, [
-                    $report->sql(),
-                    $report->count(),
-                    $report->totalTime(),
-                    $report->averageTime(),
+                    $report->getQuery(),
+                    $report->getCount(),
+                    $report->getTotalTime(),
+                    $report->getAverageTime(),
                     implode("\n", $report->backtrace()),
                 ]);
             }

@@ -28,7 +28,6 @@ abstract class GroupReports
 
     protected function pushGroupedReport(
         string $query,
-        array $bindings,
         int $count,
         float $total_time,
         float $average_time,
@@ -37,7 +36,6 @@ abstract class GroupReports
     {
         $this->grouped_report_collection->push(new GroupedQueryLogDto(
             $query,
-            $bindings,
             $count,
             $total_time,
             $average_time,

@@ -6,7 +6,6 @@ class GroupedQueryLogDto
 {
     public function __construct(
         protected string $query,
-        protected array $bindings,
         protected int $count,
         protected float $total_time,
         protected float $average_time,
@@ -19,11 +18,6 @@ class GroupedQueryLogDto
     public function getQuery() : string
     {
         return $this->query;
-    }
-
-    public function getBindings() : array
-    {
-        return $this->bindings;
     }
 
     public function getCount() : int

@@ -7,8 +7,6 @@ use LaravelSqlSpy\DataTransferObjects\Report\QueryLogDto;
 
 class ReportCollection
 {
-    protected Collection $reports;
-
     public function __construct(protected Collection $reports)
     {
         //

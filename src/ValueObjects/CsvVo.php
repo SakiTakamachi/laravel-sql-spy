@@ -13,12 +13,12 @@ class CsvVo
         'Backtrace',
     ];
 
-    public static function fileBaseName() : string
+    public static function fileBaseName(): string
     {
         return self::FILE_BASE_NAME;
     }
 
-    public static function groupBySqlAndBacktraceHeader() : array
+    public static function groupBySqlAndBacktraceHeader(): array
     {
         return self::GROUP_BY_SQL_AND_BACKTRACE_HEADER;
     }

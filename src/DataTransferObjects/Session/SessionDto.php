@@ -11,27 +11,26 @@ class SessionDto
         protected array $reports,
         protected null|Carbon $spied_at,
         protected bool $has_data = true,
-    )
-    {
+    ) {
         //
     }
 
-    public function getPageName() : string
+    public function getPageName(): string
     {
         return $this->page_name;
     }
 
-    public function getReports() : array
+    public function getReports(): array
     {
         return $this->reports;
     }
 
-    public function spiedAt() : null|Carbon
+    public function spiedAt(): null|Carbon
     {
         return $this->spied_at;
     }
 
-    public function hasData() : bool
+    public function hasData(): bool
     {
         return $this->has_data;
     }

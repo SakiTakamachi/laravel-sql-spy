@@ -4,10 +4,10 @@ namespace LaravelSqlSpy;
 
 use Illuminate\Support\Facades\DB;
 use LaravelSqlSpy\DataTransferObjects\Report\QueryLogDto;
-use LaravelSqlSpy\Singleton\ReportCollection;
-use LaravelSqlSpy\Formatters\BindingFormatter;
-use LaravelSqlSpy\Formatters\BacktraceFormatter;
 use LaravelSqlSpy\Filters\BacktraceFilter;
+use LaravelSqlSpy\Formatters\BacktraceFormatter;
+use LaravelSqlSpy\Formatters\BindingFormatter;
+use LaravelSqlSpy\Singleton\ReportCollection;
 
 class LaravelSqlSpy
 {
@@ -16,9 +16,9 @@ class LaravelSqlSpy
         //
     }
 
-    public function listen() : void
+    public function listen(): void
     {
-        DB::listen(function ($query){
+        DB::listen(function ($query) {
             //$bindings = BindingFormatter::format($query->bindings);
             $bindings = [];
 

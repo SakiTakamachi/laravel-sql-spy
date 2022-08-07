@@ -5,7 +5,6 @@ namespace LaravelSqlSpy;
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Support\ServiceProvider;
 use LaravelSqlSpy\Middleware\InjectLaravelSqlSpyMiddleware;
-use LaravelSqlSpy\LaravelSqlSpyManager;
 
 class LaravelSqlSpyServiceProvider extends ServiceProvider
 {

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use LaravelSqlSpy\Http\Controllers\DownloadController;
+use LaravelSqlSpy\Controllers\DownloadController;
 use LaravelSqlSpy\ValueObjects\RouteVo;
 
 Route::group([

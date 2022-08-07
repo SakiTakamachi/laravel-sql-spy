@@ -5,16 +5,17 @@ namespace LaravelSqlSpy\Handlers;
 use Illuminate\Support\Collection;
 use LaravelSqlSpy\DataTransferObjects\Report\GroupedQueryLogDto;
 use LaravelSqlSpy\Singleton\ReportCollection;
+use LaravelSqlSpy\LaravelSqlSpyManager;
 
 abstract class GroupReports
 {
     protected Collection $reports;
 
     public function __construct(
-        ReportCollection $report_collection,
+        LaravelSqlSpyManager $manager,
         protected Collection $grouped_report_collection,
     ) {
-        $this->reports = $report_collection->getReports();
+        $this->reports = $manager->getReports();
     }
 
     abstract public function handle(): void;

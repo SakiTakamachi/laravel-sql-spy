@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelSqlSpy\Http\Controllers;
+namespace LaravelSqlSpy\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;

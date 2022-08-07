@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelSqlSpy\Http\Middleware;
+namespace LaravelSqlSpy\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;

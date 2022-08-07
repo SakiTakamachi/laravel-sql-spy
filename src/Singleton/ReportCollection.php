@@ -12,12 +12,12 @@ class ReportCollection
         //
     }
 
-    public function push(QueryLogDto $query_log_dto) : void
+    public function push(QueryLogDto $query_log_dto): void
     {
         $this->reports->push($query_log_dto);
     }
 
-    public function getReports() : Collection
+    public function getReports(): Collection
     {
         return $this->reports;
     }

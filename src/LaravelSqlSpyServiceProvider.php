@@ -4,9 +4,8 @@ namespace LaravelSqlSpy;
 
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Support\ServiceProvider;
-use LaravelSqlSpy\LaravelSqlSpy;
-use LaravelSqlSpy\Singleton\ReportCollection;
 use LaravelSqlSpy\Http\Middleware\InjectLaravelSqlSpyMiddleware;
+use LaravelSqlSpy\Singleton\ReportCollection;
 
 class LaravelSqlSpyServiceProvider extends ServiceProvider
 {
@@ -15,9 +14,9 @@ class LaravelSqlSpyServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register() : void
+    public function register(): void
     {
-        if(!$this->isEnable()){
+        if (!$this->isEnable()) {
             return;
         }
 
@@ -33,25 +32,25 @@ class LaravelSqlSpyServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot() : void
+    public function boot(): void
     {
-        if(!$this->isEnable()){
+        if (!$this->isEnable()) {
             return;
         }
 
-        $this->loadRoutesFrom(__DIR__ . '/../routes/routes.php');
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'sql-spy');
+        $this->loadRoutesFrom(__DIR__.'/../routes/routes.php');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'sql-spy');
 
         $kernel = $this->app[Kernel::class];
         $kernel->pushMiddleware(InjectLaravelSqlSpyMiddleware::class);
     }
 
-    protected function dependencyInjection() : void
+    protected function dependencyInjection(): void
     {
         $this->app->singleton(ReportCollection::class);
     }
 
-    protected function isEnable() : bool
+    protected function isEnable(): bool
     {
         return config('app.debug') === true;
     }

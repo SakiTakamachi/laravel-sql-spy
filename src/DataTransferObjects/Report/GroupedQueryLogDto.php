@@ -10,32 +10,31 @@ class GroupedQueryLogDto
         protected float $total_time,
         protected float $average_time,
         protected array $backtrace,
-    )
-    {
+    ) {
         //
     }
 
-    public function getQuery() : string
+    public function getQuery(): string
     {
         return $this->query;
     }
 
-    public function getCount() : int
+    public function getCount(): int
     {
         return $this->count;
     }
 
-    public function getTotalTime() : float
+    public function getTotalTime(): float
     {
         return $this->total_time;
     }
 
-    public function getAverageTime() : float
+    public function getAverageTime(): float
     {
         return $this->average_time;
     }
 
-    public function getBacktrace() : array
+    public function getBacktrace(): array
     {
         return $this->backtrace;
     }

@@ -3,8 +3,8 @@
 namespace LaravelSqlSpy\Handlers;
 
 use Illuminate\Support\Collection;
-use LaravelSqlSpy\Singleton\ReportCollection;
 use LaravelSqlSpy\DataTransferObjects\Report\GroupedQueryLogDto;
+use LaravelSqlSpy\Singleton\ReportCollection;
 
 abstract class GroupReports
 {
@@ -13,16 +13,16 @@ abstract class GroupReports
     public function __construct(
         ReportCollection $report_collection,
         protected Collection $grouped_report_collection,
-    )
-    {
+    ) {
         $this->reports = $report_collection->getReports();
     }
 
-    abstract public function handle() : void;
+    abstract public function handle(): void;
 
-    public function get() : Collection
+    public function get(): Collection
     {
         $this->handle();
+
         return $this->grouped_report_collection;
     }
 
@@ -32,8 +32,7 @@ abstract class GroupReports
         float $total_time,
         float $average_time,
         array $backtrace,
-    ) : void
-    {
+    ): void {
         $this->grouped_report_collection->push(new GroupedQueryLogDto(
             $query,
             $count,

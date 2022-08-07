@@ -2,8 +2,8 @@
 
 namespace LaravelSqlSpy\Http\Controllers;
 
-use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 use LaravelSqlSpy\Stores\SessionStore;
 use LaravelSqlSpy\ValueObjects\CsvVo;
 
@@ -19,12 +19,12 @@ class DownloadController extends Controller
 
         $reports = $session_data->getReports();
 
-        $callback = function() use ($reports){
+        $callback = function () use ($reports) {
             $stream = fopen('php://output', 'w');
 
             fputcsv($stream, CsvVo::groupBySqlAndBacktraceHeader());
 
-            foreach($reports as $report){
+            foreach ($reports as $report) {
                 fputcsv($stream, [
                     $report->getQuery(),
                     $report->getCount(),

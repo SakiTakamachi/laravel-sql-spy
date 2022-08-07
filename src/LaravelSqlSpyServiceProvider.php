@@ -5,6 +5,7 @@ namespace LaravelSqlSpy;
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Support\ServiceProvider;
 use LaravelSqlSpy\Middleware\InjectLaravelSqlSpyMiddleware;
+use LaravelSqlSpy\Config;
 
 class LaravelSqlSpyServiceProvider extends ServiceProvider
 {
@@ -15,7 +16,7 @@ class LaravelSqlSpyServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        if (!$this->isEnable()) {
+        if (!Config::isEnable()) {
             return;
         }
 
@@ -32,7 +33,7 @@ class LaravelSqlSpyServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        if (!$this->isEnable()) {
+        if (!Config::isEnable()) {
             return;
         }
 
@@ -41,10 +42,5 @@ class LaravelSqlSpyServiceProvider extends ServiceProvider
 
         $kernel = $this->app[Kernel::class];
         $kernel->pushMiddleware(InjectLaravelSqlSpyMiddleware::class);
-    }
-
-    protected function isEnable(): bool
-    {
-        return config('app.debug') === true;
     }
 }

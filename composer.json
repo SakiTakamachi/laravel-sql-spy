@@ -7,6 +7,11 @@
             "LaravelSqlSpy\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "LaravelSqlSpy\\Tests\\": "tests/"
+        }
+    },
     "extra": {
         "laravel": {
             "providers": [
@@ -27,6 +32,8 @@
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
         "phpunit/phpunit": "^9.0",
-        "mockery/mockery": "^1.4.4"
+        "mockery/mockery": "^1.4.4",
+        "laravel/browser-kit-testing": "^6.3",
+        "laravel/laravel": "^9.3"
     }
 }

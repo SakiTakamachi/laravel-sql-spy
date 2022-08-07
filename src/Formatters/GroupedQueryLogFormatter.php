@@ -2,6 +2,9 @@
 
 namespace LaravelSqlSpy\Formatters;
 
+use Carbon\Carbon;
+use DateTime;
+
 class GroupedQueryLogFormatter
 {
     public static function parse(mixed $binding): string

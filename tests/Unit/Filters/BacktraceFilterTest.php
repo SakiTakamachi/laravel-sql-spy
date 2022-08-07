@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelSqlSpy\Tests\Unit;
+namespace LaravelSqlSpy\Tests\Unit\Filters;
 
 use LaravelSqlSpy\Tests\TestCase;
 

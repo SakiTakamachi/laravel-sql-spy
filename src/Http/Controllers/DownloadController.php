@@ -15,7 +15,7 @@ class DownloadController extends Controller
 
         abort_if(!$session_data->hasData(), 404);
 
-        $filename = sprintf('%s%s_%s.csv', CsvVo::fileBaseName(), $session_data->getPageName(), $session_data->spiedAt()->format('Ymd_His'));
+        $filename = sprintf('%s%s_%s.csv', CsvVo::fileBaseName(), $session_data->getPageName(), $session_data->getSpiedAt()->format('Ymd_His'));
 
         $reports = $session_data->getReports();
 

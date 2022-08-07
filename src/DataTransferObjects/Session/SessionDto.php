@@ -25,7 +25,7 @@ class SessionDto
         return $this->reports;
     }
 
-    public function spiedAt(): null|Carbon
+    public function getSpiedAt(): null|Carbon
     {
         return $this->spied_at;
     }

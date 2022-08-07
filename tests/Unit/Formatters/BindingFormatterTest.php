@@ -2,11 +2,11 @@
 
 namespace LaravelSqlSpy\Tests\Unit\Formatters;
 
-use LaravelSqlSpy\Tests\TestCase;
 use Carbon\Carbon;
 use DateTime;
 use Illuminate\Foundation\Testing\WithFaker;
 use LaravelSqlSpy\Formatters\BindingFormatter;
+use LaravelSqlSpy\Tests\TestCase;
 
 class BindingFormatterTest extends TestCase
 {
@@ -26,7 +26,7 @@ class BindingFormatterTest extends TestCase
 
         $formated_bindings = BindingFormatter::format($bindings);
 
-        foreach($formated_bindings as $formated_binding){
+        foreach ($formated_bindings as $formated_binding) {
             $this->assertIsString($formated_binding);
         }
 

@@ -2,9 +2,9 @@
 
 namespace LaravelSqlSpy\Tests\Unit\DataTransferObjects\Report;
 
-use LaravelSqlSpy\Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use LaravelSqlSpy\DataTransferObjects\Report\GroupedQueryLogDto;
+use LaravelSqlSpy\Tests\TestCase;
 
 class GroupedQueryLogDtoTest extends TestCase
 {

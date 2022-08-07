@@ -2,10 +2,10 @@
 
 namespace LaravelSqlSpy\Tests\Unit\DataTransferObjects\Session;
 
-use LaravelSqlSpy\Tests\TestCase;
+use Carbon\Carbon;
 use Illuminate\Foundation\Testing\WithFaker;
 use LaravelSqlSpy\DataTransferObjects\Session\SessionDto;
-use Carbon\Carbon;
+use LaravelSqlSpy\Tests\TestCase;
 
 class SessionDtoTest extends TestCase
 {

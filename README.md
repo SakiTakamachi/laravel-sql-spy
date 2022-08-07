@@ -1,4 +1,8 @@
-# SQL query aggregation tool for refactoring
+# Laravel Sql Spy
+
+[![StyleCI](https://github.styleci.io/repos/520884086/shield?branch=master)]
+
+## SQL query aggregation tool for refactoring
 
 (!)This library is under development.
 

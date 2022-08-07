@@ -2,12 +2,12 @@
 
 namespace LaravelSqlSpy;
 
-use Illuminate\Support\Facades\DB;
-use LaravelSqlSpy\DataTransferObjects\Report\QueryLogDto;
-use Exception;
 use Carbon\Carbon;
 use DateTime;
+use Exception;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
+use LaravelSqlSpy\DataTransferObjects\Report\QueryLogDto;
 
 class LaravelSqlSpyManager
 {
@@ -61,7 +61,7 @@ class LaravelSqlSpyManager
         $filtered_backtrace = [];
 
         foreach ($backtrace as $backtrace_item) {
-            if(self::isBacktraceExcludeFile($backtrace_item['file'])){
+            if (self::isBacktraceExcludeFile($backtrace_item['file'])) {
                 continue;
             }
 
@@ -75,7 +75,7 @@ class LaravelSqlSpyManager
         $reverse_filtered_backtrace = array_reverse($filtered_backtrace);
 
         foreach ($reverse_filtered_backtrace as $index => $backtrace_item) {
-            if(self::isBacktraceExcludeFile($backtrace_item['file'])){
+            if (self::isBacktraceExcludeFile($backtrace_item['file'])) {
                 break;
             }
 
@@ -88,7 +88,7 @@ class LaravelSqlSpyManager
 
         $formated_backtrace = [];
 
-        foreach($filtered_backtrace as $backtrace_item){
+        foreach ($filtered_backtrace as $backtrace_item) {
             $file_path = realpath($backtrace_item['file']);
             $file_path = str_replace(base_path(), '', $file_path);
             $formated_backtrace[] = sprintf('%s:%s', $file_path, $backtrace_item['line']);

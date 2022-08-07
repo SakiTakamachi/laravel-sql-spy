@@ -4,7 +4,6 @@ namespace LaravelSqlSpy\Handlers;
 
 use Illuminate\Support\Collection;
 use LaravelSqlSpy\DataTransferObjects\Report\GroupedQueryLogDto;
-use LaravelSqlSpy\Singleton\ReportCollection;
 use LaravelSqlSpy\LaravelSqlSpyManager;
 
 abstract class GroupReports

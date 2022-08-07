@@ -1,6 +1,11 @@
-# Laravel Sql Spy
+# SQL query aggregation tool for refactoring
 
-This library is under development.
+(!)This library is under development.
+
+Laravel Sql Spy is a tool for inspecting the SQL queries issued by your application built with Laravel.
+To find duplicate and redundant queries that are the main source of load, it's not enough to just get a list of query submission logs.
+
+Laravel Sql Spy groups issued queries and supports refactoring efficiently.
 
 ## Requirements
 

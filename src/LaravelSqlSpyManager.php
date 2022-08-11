@@ -65,8 +65,13 @@ class LaravelSqlSpyManager
                 continue;
             }
 
+<<<<<<< HEAD
             if (!file_exists($backtraceItem['file'])) {
                 throw new Exception('File "'.$backtraceItem['file'].'" not found.');
+=======
+            if (! file_exists($backtrace_item['file'])) {
+                throw new Exception('File "'.$backtrace_item['file'].'" not found.');
+>>>>>>> bc130008ba04c97ea832f4acb13d74af7f6b802b
             }
 
             $filteredBacktrace[] = $backtraceItem;
@@ -82,8 +87,13 @@ class LaravelSqlSpyManager
             unset($reverseFilteredBacktrace[$index]);
         }
 
+<<<<<<< HEAD
         if (!empty($reverseFilteredBacktrace)) {
             $filteredBacktrace = array_reverse($reverseFilteredBacktrace);
+=======
+        if (! empty($reverse_filtered_backtrace)) {
+            $filtered_backtrace = array_reverse($reverse_filtered_backtrace);
+>>>>>>> bc130008ba04c97ea832f4acb13d74af7f6b802b
         }
 
         $formatedBacktrace = [];

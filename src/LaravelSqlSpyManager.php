@@ -82,13 +82,8 @@ class LaravelSqlSpyManager
             unset($reverseFilteredBacktrace[$index]);
         }
 
-<<<<<<< HEAD
         if (!empty($reverseFilteredBacktrace)) {
             $filteredBacktrace = array_reverse($reverseFilteredBacktrace);
-=======
-        if (! empty($reverse_filtered_backtrace)) {
-            $filtered_backtrace = array_reverse($reverse_filtered_backtrace);
->>>>>>> bc130008ba04c97ea832f4acb13d74af7f6b802b
         }
 
         $formatedBacktrace = [];

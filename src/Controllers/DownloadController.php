@@ -13,7 +13,7 @@ class DownloadController extends Controller
     {
         $sessionData = SessionStore::load();
 
-        abort_if(!$sessionData->hasData(), 404);
+        abort_if(! $sessionData->hasData(), 404);
 
         $filename = sprintf('%s%s_%s.csv', CsvVo::fileBaseName(), $sessionData->getPageName(), $sessionData->getSpiedAt()->format('Ymd_His'));
 

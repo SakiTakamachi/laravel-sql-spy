@@ -15,7 +15,7 @@ class LaravelSqlSpyServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        if (!Config::isEnable()) {
+        if (! Config::isEnable()) {
             return;
         }
 
@@ -32,7 +32,7 @@ class LaravelSqlSpyServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        if (!Config::isEnable()) {
+        if (! Config::isEnable()) {
             return;
         }
 

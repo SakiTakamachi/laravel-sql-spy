@@ -12,3 +12,7 @@ enabled:
   - psr12_braces
   - psr12_class_definition
   - single_trait_insert_per_statement
+
+disabled:
+  - class_definition
+  - short_array_syntax

@@ -11,13 +11,13 @@ class DownloadController extends Controller
 {
     public function csv(Request $request)
     {
-        $session_data = SessionStore::load();
+        $sessionData = SessionStore::load();
 
-        abort_if(!$session_data->hasData(), 404);
+        abort_if(!$sessionData->hasData(), 404);
 
-        $filename = sprintf('%s%s_%s.csv', CsvVo::fileBaseName(), $session_data->getPageName(), $session_data->getSpiedAt()->format('Ymd_His'));
+        $filename = sprintf('%s%s_%s.csv', CsvVo::fileBaseName(), $sessionData->getPageName(), $sessionData->getSpiedAt()->format('Ymd_His'));
 
-        $reports = $session_data->getReports();
+        $reports = $sessionData->getReports();
 
         $callback = function () use ($reports) {
             $stream = fopen('php://output', 'w');

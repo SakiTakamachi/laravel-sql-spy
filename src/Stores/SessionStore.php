@@ -13,13 +13,13 @@ class SessionStore
 {
     public static function save(Request $request): void
     {
-        $route_name = $request?->route()?->getName();
+        $routeName = $request?->route()?->getName();
 
-        if (is_null($route_name) || $route_name === RouteVo::csvDownloadRouteNameFull()) {
+        if (is_null($routeName) || $routeName === RouteVo::csvDownloadRouteNameFull()) {
             return;
         }
 
-        $page = $route_name ?: 'unknown';
+        $page = $routeName ?: 'unknown';
         $page = str_replace('.', '_', $page);
 
         $reports = app()->make(GroupByQueryAndBacktrace::class)->get();

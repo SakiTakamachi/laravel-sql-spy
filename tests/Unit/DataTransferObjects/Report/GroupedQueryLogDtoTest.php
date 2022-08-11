@@ -14,22 +14,22 @@ class GroupedQueryLogDtoTest extends TestCase
     {
         $query = $this->faker->lexify();
         $count = $this->faker->randomNumber();
-        $total_time = $this->faker->randomFloat();
-        $average_time = $this->faker->randomFloat();
+        $totalTime = $this->faker->randomFloat();
+        $averageTime = $this->faker->randomFloat();
         $backtrace = $this->faker->randomElements();
 
         $dto = new GroupedQueryLogDto(
             $query,
             $count,
-            $total_time,
-            $average_time,
+            $totalTime,
+            $averageTime,
             $backtrace,
         );
 
         $this->assertSame($query, $dto->getQuery());
         $this->assertSame($count, $dto->getCount());
-        $this->assertSame($total_time, $dto->getTotalTime());
-        $this->assertSame($average_time, $dto->getAverageTime());
+        $this->assertSame($totalTime, $dto->getTotalTime());
+        $this->assertSame($averageTime, $dto->getAverageTime());
         $this->assertSame($backtrace, $dto->getBacktrace());
     }
 }

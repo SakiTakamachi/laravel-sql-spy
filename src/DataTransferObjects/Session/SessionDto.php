@@ -7,17 +7,17 @@ use Carbon\Carbon;
 class SessionDto
 {
     public function __construct(
-        protected string $page_name,
+        protected string $pageName,
         protected array $reports,
-        protected null|Carbon $spied_at,
-        protected bool $has_data = true,
+        protected null|Carbon $spiedAt,
+        protected bool $hasData = true,
     ) {
         //
     }
 
     public function getPageName(): string
     {
-        return $this->page_name;
+        return $this->pageName;
     }
 
     public function getReports(): array
@@ -27,11 +27,11 @@ class SessionDto
 
     public function getSpiedAt(): null|Carbon
     {
-        return $this->spied_at;
+        return $this->spiedAt;
     }
 
     public function hasData(): bool
     {
-        return $this->has_data;
+        return $this->hasData;
     }
 }

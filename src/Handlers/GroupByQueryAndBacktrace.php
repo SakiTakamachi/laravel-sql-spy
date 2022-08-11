@@ -11,19 +11,19 @@ class GroupByQueryAndBacktrace extends GroupReports
                 return $report->getQuery();
             }, function ($report) {
                 return serialize($report->getBacktrace());
-            }])->each(function ($report_group_by_query, $query) {
-                $report_group_by_query->each(function ($report_group_by_backtrace, $backtrace) use ($query) {
-                    $count = $report_group_by_backtrace->count();
-                    $total_time = $report_group_by_backtrace->sum(function ($report) {
+            }])->each(function ($reportGroupByQuery, $query) {
+                $reportGroupByQuery->each(function ($reportGroupByBacktrace, $backtrace) use ($query) {
+                    $count = $reportGroupByBacktrace->count();
+                    $totalTime = $reportGroupByBacktrace->sum(function ($report) {
                         return $report->getTime();
                     });
-                    $average_time = $count > 0 ? $total_time / $count : 0;
+                    $averageTime = $count > 0 ? $totalTime / $count : 0;
 
                     $this->pushGroupedReport(
                         $query,
                         $count,
-                        $total_time,
-                        $average_time,
+                        $totalTime,
+                        $averageTime,
                         unserialize($backtrace),
                     );
                 });

@@ -12,7 +12,7 @@ abstract class GroupReports
 
     public function __construct(
         LaravelSqlSpyManager $manager,
-        protected Collection $grouped_report_collection,
+        protected Collection $groupedReportCollection,
     ) {
         $this->reports = $manager->getReports();
     }
@@ -23,21 +23,21 @@ abstract class GroupReports
     {
         $this->handle();
 
-        return $this->grouped_report_collection;
+        return $this->groupedReportCollection;
     }
 
     protected function pushGroupedReport(
         string $query,
         int $count,
-        float $total_time,
-        float $average_time,
+        float $totalTime,
+        float $averageTime,
         array $backtrace,
     ): void {
-        $this->grouped_report_collection->push(new GroupedQueryLogDto(
+        $this->groupedReportCollection->push(new GroupedQueryLogDto(
             $query,
             $count,
-            $total_time,
-            $average_time,
+            $totalTime,
+            $averageTime,
             $backtrace,
         ));
     }

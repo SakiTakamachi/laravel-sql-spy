@@ -7,8 +7,8 @@ class GroupedQueryLogDto
     public function __construct(
         protected string $query,
         protected int $count,
-        protected float $total_time,
-        protected float $average_time,
+        protected float $totalTime,
+        protected float $averageTime,
         protected array $backtrace,
     ) {
         //
@@ -26,12 +26,12 @@ class GroupedQueryLogDto
 
     public function getTotalTime(): float
     {
-        return $this->total_time;
+        return $this->totalTime;
     }
 
     public function getAverageTime(): float
     {
-        return $this->average_time;
+        return $this->averageTime;
     }
 
     public function getBacktrace(): array

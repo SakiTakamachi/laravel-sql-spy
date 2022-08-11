@@ -37,10 +37,10 @@ class LaravelSqlSpyManager
 
     protected function formatBindings(array $bindings): array
     {
-        $formated_bindings = [];
+        $formatedBindings = [];
 
         foreach ($bindings as $binding) {
-            $formated_bindings[] = match (true) {
+            $formatedBindings[] = match (true) {
                 is_string($binding)          => $binding,
                 is_bool($binding)            => $binding ? '1' : '0',
                 is_int($binding)             => (string) $binding,
@@ -51,56 +51,56 @@ class LaravelSqlSpyManager
             };
         }
 
-        return $formated_bindings;
+        return $formatedBindings;
     }
 
     protected function getBacktrace(): array
     {
         $backtrace = debug_backtrace(false, 100);
 
-        $filtered_backtrace = [];
+        $filteredBacktrace = [];
 
-        foreach ($backtrace as $backtrace_item) {
-            if (self::isBacktraceExcludeFile($backtrace_item['file'])) {
+        foreach ($backtrace as $backtraceItem) {
+            if (self::isBacktraceExcludeFile($backtraceItem['file'])) {
                 continue;
             }
 
-            if (!file_exists($backtrace_item['file'])) {
-                throw new Exception('File "'.$backtrace_item['file'].'" not found.');
+            if (!file_exists($backtraceItem['file'])) {
+                throw new Exception('File "'.$backtraceItem['file'].'" not found.');
             }
 
-            $filtered_backtrace[] = $backtrace_item;
+            $filteredBacktrace[] = $backtraceItem;
         }
 
-        $reverse_filtered_backtrace = array_reverse($filtered_backtrace);
+        $reverseFilteredBacktrace = array_reverse($filteredBacktrace);
 
-        foreach ($reverse_filtered_backtrace as $index => $backtrace_item) {
-            if (self::isBacktraceExcludeFile($backtrace_item['file'])) {
+        foreach ($reverseFilteredBacktrace as $index => $backtraceItem) {
+            if (self::isBacktraceExcludeFile($backtraceItem['file'])) {
                 break;
             }
 
-            unset($reverse_filtered_backtrace[$index]);
+            unset($reverseFilteredBacktrace[$index]);
         }
 
-        if (!empty($reverse_filtered_backtrace)) {
-            $filtered_backtrace = array_reverse($reverse_filtered_backtrace);
+        if (!empty($reverseFilteredBacktrace)) {
+            $filteredBacktrace = array_reverse($reverseFilteredBacktrace);
         }
 
-        $formated_backtrace = [];
+        $formatedBacktrace = [];
 
-        foreach ($filtered_backtrace as $backtrace_item) {
-            $file_path = realpath($backtrace_item['file']);
-            $file_path = str_replace(base_path(), '', $file_path);
-            $formated_backtrace[] = sprintf('%s:%s', $file_path, $backtrace_item['line']);
+        foreach ($filteredBacktrace as $backtraceItem) {
+            $filePath = realpath($backtraceItem['file']);
+            $filePath = str_replace(base_path(), '', $filePath);
+            $formatedBacktrace[] = sprintf('%s:%s', $filePath, $backtraceItem['line']);
         }
 
-        return array_filter($formated_backtrace);
+        return array_filter($formatedBacktrace);
     }
 
-    protected function isBacktraceStartFile(string $file_path): bool
+    protected function isBacktraceStartFile(string $filePath): bool
     {
         foreach (self::BACKTRACE_START_KEYWORDS as $keyword) {
-            if (strpos($file_path, $keyword) !== false) {
+            if (strpos($filePath, $keyword) !== false) {
                 return true;
             }
         }
@@ -108,13 +108,13 @@ class LaravelSqlSpyManager
         return false;
     }
 
-    protected function isBacktraceExcludeFile(string $file_path): bool
+    protected function isBacktraceExcludeFile(string $filePath): bool
     {
-        $file_path = str_replace('\\', '/', $file_path);
-        $file_path = realpath($file_path);
+        $filePath = str_replace('\\', '/', $filePath);
+        $filePath = realpath($filePath);
 
         foreach (self::BACKTRACE_EXCLUDE_KEYWORDS as $keyword) {
-            if (strpos($file_path, $keyword) !== false) {
+            if (strpos($filePath, $keyword) !== false) {
                 return true;
             }
         }

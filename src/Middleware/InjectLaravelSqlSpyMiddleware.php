@@ -34,8 +34,8 @@ class InjectLaravelSqlSpyMiddleware
     {
         $content = $response->getContent();
 
-        $inject_content = view('sql-spy::download_btn', [
-            'download_route_name' => RouteVo::csvDownloadRouteNameFull(),
+        $injectContent = view('sql-spy::download-btn', [
+            'downloadRouteName' => RouteVo::csvDownloadRouteNameFull(),
         ]);
 
         $pos = strripos($content, '</body>');
@@ -44,7 +44,7 @@ class InjectLaravelSqlSpyMiddleware
             return;
         }
 
-        $content = substr($content, 0, $pos).$inject_content.substr($content, $pos);
+        $content = substr($content, 0, $pos).$injectContent.substr($content, $pos);
 
         $original = null;
         if ($response instanceof Response && $response->getOriginalContent()) {

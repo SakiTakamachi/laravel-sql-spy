@@ -13,28 +13,28 @@ class SessionDtoTest extends TestCase
 
     public function testDtoGettersCaseHasData()
     {
-        $page_name = $this->faker->lexify();
+        $pageName = $this->faker->lexify();
         $reports = $this->faker->randomElements();
-        $spied_at = Carbon::now();
+        $spiedAt = Carbon::now();
 
         $dto = new SessionDto(
-            $page_name,
+            $pageName,
             $reports,
-            $spied_at,
+            $spiedAt,
         );
 
-        $this->assertSame($page_name, $dto->getPageName());
+        $this->assertSame($pageName, $dto->getPageName());
         $this->assertSame($reports, $dto->getReports());
-        $this->assertSame($spied_at, $dto->getSpiedAt());
+        $this->assertSame($spiedAt, $dto->getSpiedAt());
         $this->assertSame(true, $dto->hasData());
     }
 
     public function testDtoGettersCaseNoData()
     {
-        $page_name = '';
+        $pageName = '';
         $reports = [];
-        $spied_at = null;
-        $has_data = false;
+        $spiedAt = null;
+        $hasData = false;
 
         $dto = new SessionDto(
             '',

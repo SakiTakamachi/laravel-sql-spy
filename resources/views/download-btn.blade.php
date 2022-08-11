@@ -18,12 +18,12 @@
 </style>
 
 <div id="laravel-sql-spy">
-    <a href="{{ route($download_route_name, [], false) }}" onclick="event.preventDefault();document.getElementById('laravel-sql-spy-form').submit();" target="_blank">
+    <a href="{{ route($downloadRouteName, [], false) }}" onclick="event.preventDefault();document.getElementById('laravel-sql-spy-form').submit();" target="_blank">
         <span>SQL SPY</span>
         <span>CSV DOWNLOAD</span>
     </a>
 </div>
 
-<form id="laravel-sql-spy-form" action="{{ route($download_route_name, [], false) }}" method="POST" style="display: none;">
+<form id="laravel-sql-spy-form" action="{{ route($downloadRouteName, [], false) }}" method="POST" style="display: none;">
     @csrf
 </form>

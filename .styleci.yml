@@ -15,5 +15,4 @@ enabled:
 
 disabled:
   - class_definition
-  - short_array_syntax
   - method_argument_space
